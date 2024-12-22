@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Welcome, Admin</h1>
+            </header>
+
+            <!-- Bar Chart Section -->
+            <section class="charts">
+                <h2>User Activity Overview (Monthly)</h2>
+                <canvas id="userActivityChart"></canvas>
+            </section>
+
+            <!-- Table Section -->
+            <section class="table-section">
+                <h2>User Data</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>EVOS AJI</td>
+                            <td>dji@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>RRQ YAS4YOU</td>
+                            <td>yas@example.com</td>
+                            <td>Inactive</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>BTR GIO</td>
+                            <td>gio@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>EVOS JAMBUL</td>
+                            <td>rez@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>RRQ VAL</td>
+                            <td>val@example.com</td>
+                            <td>Inactive</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Function to display bar chart using Chart.js
+        const ctx = document.getElementById('userActivityChart').getContext('2d');
+        const userActivityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'January', 'February', 'March', 
+                    'April', 'May', 'June', 
+                    'July', 'August', 'September', 
+                    'October', 'November', 'December'
+                ],
+                datasets: [{
+                    label: 'User Activity',
+                    data: [50, 40, 60, 70, 50, 80, 90, 100, 85, 70, 60, 50],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Users'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
