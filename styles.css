@@ -300,3 +300,40 @@ footer {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
+nav ul li a.active {
+  color: #f39c12;
+  font-weight: bold;
+  border-bottom: 2px solid #f39c12;
+  transition: all 0.3s ease;
+}
+
+#contact {
+  text-align: center; /* Menjaga teks di tengah */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;  /* Untuk memusatkan secara horizontal */
+  align-items: center;      /* Untuk memusatkan secara vertikal */
+  height: 500px;            /* Mengatur tinggi container peta */
+  margin-top: 20px;         /* Memberikan jarak antara form dan peta */
+}
+
+iframe {
+  width: 80%;               /* Mengatur lebar peta */
+  max-width: 600px;         /* Maksimal lebar 600px */
+  height: 450px;            /* Tinggi iframe */
+  border: none;             /* Menghilangkan border */
+}
+#contact form {
+  margin-bottom: 30px; /* Menambahkan spasi bawah pada form */
+}
+
+#contact .map-container {
+  margin-top: 30px; /* Menambahkan spasi atas pada map */
+}
+
+#contact h2 {
+  margin-bottom: -40px; /* Menambahkan spasi bawah pada judul */
+}

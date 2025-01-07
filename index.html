@@ -20,6 +20,48 @@
     </nav>
   </header>
 
+  <script>
+    // Smooth scrolling with easing
+    document.querySelectorAll('nav ul li a').forEach((link) => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault(); // Mencegah perilaku default
+  
+        const targetId = this.getAttribute('href'); // Ambil target dari href
+        const targetElement = document.querySelector(targetId); // Pilih elemen target
+  
+        if (targetElement) {
+          // Scroll dengan animasi
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth' // Gunakan scrolling bawaan browser
+          });
+        }
+      });
+    });
+  
+    // Optional: Highlight active section during scrolling
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+  
+    window.addEventListener('scroll', () => {
+      let current = "";
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 50; // Tambahkan offset
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+  
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+  
   <section id="hero">
     <div class="hero-content">
       <h2 class="text-hero">Halo, Saya <span>Fakhri Muzakki</span></h2>
@@ -129,6 +171,19 @@
       <textarea placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send Message</button>
     </form>
+    
+    <h2>Maps</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31721.80455729395!2d106.71958217301494!3d-6.347447200176704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e44e863902f7%3A0xdd7e9f6c49cd9f73!2sUniversitas%20Pamulang%20Kampus%202%20Viktor!5e0!3m2!1sid!2sid!4v1673037339572!5m2!1sid!2sid"
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
   </section>
 
   <footer>
